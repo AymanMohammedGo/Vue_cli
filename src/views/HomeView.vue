@@ -1,8 +1,11 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld />
+    <KeepAlive>
+      <HelloWorld :name="name" v-if="!isShow" />
+    </KeepAlive>
   </div>
+  <div><button @click="isShow = !isShow">change state</button></div>
 </template>
 
 <script>
@@ -12,6 +15,12 @@ export default {
   name: "HomeView",
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      name: "Ayman",
+      isShow: true,
+    };
   },
 };
 </script>
