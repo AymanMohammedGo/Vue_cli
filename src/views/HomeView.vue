@@ -1,7 +1,11 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HelloWorld @updateActive="changeActive" :isActive="isActive" />
+    <!-- <HelloWorld
+      @updateActive="($event) => changeActive($event)"
+      :isActive="isActive"
+    /> -->
   </div>
 </template>
 
@@ -13,6 +17,19 @@ export default {
   name: "HomeView",
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      isActive: true,
+    };
+  },
+  methods: {
+    changeActive() {
+      this.isActive = !this.isActive;
+    },
+    // changeActive(data) {
+    //   this.isActive = data;
+    // },
   },
 };
 </script>
